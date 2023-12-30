@@ -11,7 +11,7 @@ if(isset($_REQUEST['uname']) && isset($_REQUEST['upass']))
         die('Login success');
     }
     else{
-        die('invalid details');
+        die('invalid details'); //test
     }
 }
 
