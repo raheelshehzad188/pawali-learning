@@ -1,5 +1,10 @@
 <?php
-include "../config.php";
+include  '../config.php';
+if(isset($_SESSION['admin_login']))
+{
+    header("Location: ".BASE_URL.'/cs-admin/');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +29,16 @@ include "../config.php";
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form action="<?= BASE_URL ?>/login.php" method="POST">
+                                            <?php
+                                            if(isset($_SESSION['login_error']) && $_SESSION['login_error'])
+                                            {
+
+                                                ?>
+                                                <div class="alert alert-danger"><?= $_SESSION['login_error'] ?></div>
+                                                <?php
+                                                unset($_SESSION['login_error']);
+                                            }
+                                            ?>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" name="uname" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>

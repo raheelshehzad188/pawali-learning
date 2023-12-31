@@ -7,11 +7,13 @@ if(isset($_REQUEST['uname']) && isset($_REQUEST['upass']))
     if($all)
     {
         $user = $all[0];
-        var_dump($user);
-        die('Login success');
+        $_SESSION['admin_login'] = $user;
+        header("Location: ".BASE_URL.'/cs-admin/index.php');
+        ;
     }
     else{
-        die('invalid details'); //test
+        $_SESSION['login_error'] = 'Invalid details';
+        header("Location: ".BASE_URL.'/cs-admin/login.php');
     }
 }
 
