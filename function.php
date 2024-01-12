@@ -53,6 +53,22 @@ if ($result->num_rows > 0) {
     return array();
 }
 }
+function add($tbl,$data = array())
+{
+    $conn = get_conn();
+
+    $cols = array();
+    $vls = array();
+    foreach ($data as $k=> $v)
+    {
+        $cols[] =  "`".$k."`";
+        $vls[] = "'".$v."'";
+    }
+    $sql = "INSERT INTO `".$tbl."`(".implode(',',$cols).") VALUES (".implode(',',$vls).")";
+$result = $conn->query($sql);
+
+return $result;
+}
 function khawar_sum($a, $b)
 {
     return $a+$b;

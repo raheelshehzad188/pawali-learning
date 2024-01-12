@@ -1,5 +1,5 @@
 <?php
-include  '../config.php';
+include  '../function.php';
 if(!isset($_SESSION['admin_login']))
 {
     header("Location: ".BASE_URL.'/cs-admin/login.php');
