@@ -30,6 +30,7 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -46,6 +47,9 @@
                     <tr>
                         <td><?= $k+1 ?></td>
                         <td><?= (isset($v['name'])?$v['name']:'') ?>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" href="<?= BASE_URL ?>/cs-admin?page=editcat&cat_id=<?= $v['id'] ?>" >Edit</a>
                         </td>
                     </tr>
                     <?php
